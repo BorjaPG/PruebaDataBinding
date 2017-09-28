@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Para vincular la vista al modelo layout debe ser la raíz de la vista -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <!-- Se puede declarar una variable que haga referencia a la clase que contenga los métodos
+         a invocar. En este caso se gestionará el click-->
+        <variable
+            name="handler"
+            type="com.bp.pruebadatabinding.Handler"/>
+        <!-- Se declara la variable modelo que será un instancia de la clase Modelo -->
+        <variable
+            name="modelo"
+            type="com.bp.pruebadatabinding.Modelo"/>
+    </data>
+
+    <!-- Es posible asignar a un elemento de la vista el valor de cualquier variable de la
+    clase Modelo -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{modelo.m1}"
+            android:onClick="@{handler::onNamedClicked}"/>
+        <!-- Se invoca el valor de m1 para asignarlo al texto -->
+        <!-- Se invoca el método que gestiona el click -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{modelo.m2}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{modelo.m3}"/>
+
+    </LinearLayout>
+
+</layout>
